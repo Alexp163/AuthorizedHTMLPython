@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <p>Страница для входа в систему</p>
+            <form action="{{ url_for('login_user')}}" method="post">
+				<div class="form-group">
+					<div id="form_title">Авторизация</div>
+				</div>
+				<div class="form-group">
+					<input name="login" value="" type="text" class="form-control" placeholder="Логин"/>
+				</div>
+				<div class="form-group">
+					<input name="password" value="" type="text" class="form-control" placeholder="Пароль"/>
+				</div>
+				<div class="form-group">
+					<button type="submit" id="form_btn">Вход</button>
+				</div>
+			</form>
+</body>
+</html>
+

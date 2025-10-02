@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<p>Страница для регистрации</p>
+    <form action="{{ url_for('register_user')}}" method="post">
+        <div class="form-group">
+            <div id="form_zag">Регистрация</div>
+        </div>
+        <div class="form-group">
+            <input name="login" value="" type="text" class="form-control" placeholder="Логин"/>
+        </div>
+        <div class="form-group">
+            <input name="password" value="" type="text" class="form-control" placeholder="Пароль"/>
+        </div>
+        <div class="form-group">
+            <input name="password_repeat" value="" type="text" class="form-control" placeholder="Пароль повторный"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="form_btn">Регистрация</button>
+        </div>
+    </form>
+</body>
+</html>
