@@ -3,6 +3,7 @@ import jwt
 secret_key = "ijasfdioj83rj89jafsd83jaf8"
 algorithm = "HS256"
 
+
 class CredentialsRepository:
     def decode_token(self, token: str) -> str:
         payload = jwt.decode(token, secret_key, [algorithm])
