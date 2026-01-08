@@ -7,6 +7,7 @@
 </head>
 <body>
     <p>Страница для входа в систему</p>
+	<p>{{ message }}</p>
             <form action="{{ url_for('login_user')}}" method="post">
 				<div class="form-group">
 					<div id="form_title">Авторизация</div>
@@ -20,7 +21,9 @@
 				<div class="form-group">
 					<button type="submit" id="form_btn">Вход</button>
 				</div>
+				
 			</form>
+			<a href="{{ url_for('password_reset')}}">Забыли пароль</a>
 </body>
 </html>
 

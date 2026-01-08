@@ -8,7 +8,7 @@ router = APIRouter(tags=["index"])
 
 @router.get("/")
 async def index(request: Request):
-    return render_template("index.html")
+    return render_template("index.html", request=request)
 
 
 @router.get("/register", status_code=status.HTTP_201_CREATED)
@@ -26,12 +26,12 @@ async def user_page(request: Request):
     return render_template("user_page.html", request=request)
 
 
-@router.get("/password_update")
-async def password_update(request: Request):
-    return render_template("password_update.html", request=request)
+@router.get("/password_update", status_code=status.HTTP_200_OK)
+async def password_update(random_string: str, request: Request):
+    return render_template("password_update.html", request=request, random_string=random_string)
 
 
-@router.get("/password_reset")
-async def password_reset(random_string: str, request: Request):
-    return render_template("password_reset.html", request=request, random_string=random_string)
+@router.get("/password_reset", status_code=status.HTTP_200_OK)
+async def password_reset( request: Request):
+    return render_template("password_reset.html", request=request)
 

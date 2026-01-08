@@ -114,11 +114,23 @@ async def users_verify(random_string: str, request: Request, session: AsyncSessi
     return render_template("user_page.html", username=username, request=request )
 
 @router.post("/password_update")
-async def password_update(request: Request, password: str = Form(), password_repeat: str = Form(), 
+async def user_password_update(request: Request, password: str = Form(), password_repeat: str = Form(), 
                           random_string: str = Form(), 
                           session=Depends(get_async_session),
                           repository: Repository = Depends()):
     user_password_update = await repository.password_update(nickname, user, session)
     return user_password_update
+
+@router.post("/password_reset")
+async def router_password_reset(request: Request, email: str = Form()):
+    if not check(email):
+        return render_template(
+            "password_reset.html",
+            request=request,
+            message="ВЫ ввели некорректный email, введите его повторно",
+        )
+    
+
+
 
 

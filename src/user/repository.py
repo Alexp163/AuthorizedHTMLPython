@@ -123,6 +123,14 @@ class Repository:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
                                 detail="Отказано в доступе")
         
+    async def password_reset_email_verify(self, email: str, session: AsyncSession):
+        statement = select(User).where(User.email == email)
+        result = await session.scalar(statement)
+        if result is not None:
+            email_sending(email, f"Добрый день, {result.nickname} Верифицируйтесь,"
+                      f"пожалуйста! http://127.0.0.1:8004/users/verify?random_string={random_string}", "Верификация пользователя!")
+
+        
     
 
 
